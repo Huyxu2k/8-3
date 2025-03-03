@@ -1,0 +1,13 @@
+canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+body {
+    background-image: url(./root/8852395.png);
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100vh; 
+    margin: 0; 
+}
