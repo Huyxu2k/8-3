@@ -25,10 +25,7 @@
         };
         var slideshow = {
             mainImages: [
-                "./root/1.jpg",
-                "./root/2.jpg",
-                "./root/3.jpg",
-                "./root/4.jpg"
+                "./root/1.jfif",
             ],
             interval: 3000
         };
@@ -169,7 +166,8 @@
                 particleRate = settings.particles.length / settings.particles.duration, // particles/sec
                 time,
                 currentImageIndex = 0,
-                imageElement = new Image();
+                imageElement = new Image(),
+                text = new Text();
 
             imageElement.src = slideshow.mainImages[currentImageIndex];
 
@@ -241,15 +239,33 @@
                 particles.draw(context, image);
 
                 //random Heart
-                
+
 
                 //draw image
-                var imgWidth = 120;
-                var imgHeight = 150;
-                var centerX = canvas.width / 2 - imgWidth / 2;
-                var centerY = canvas.height / 2 - imgHeight / 2;
-                context.drawImage(imageElement, centerX, centerY, imgWidth, imgHeight);
+                // var imgWidth = 120;
+                // var imgHeight = 150;
+                // var centerX = canvas.width / 2 - imgWidth / 2;
+                // var centerY = canvas.height / 2 - imgHeight / 2;
+                // context.drawImage(imageElement, centerX, centerY, imgWidth, imgHeight);
+                
+                drawText(context);
             }
+            //draw text
+            function drawText(context) {
+                context.save(); 
+                context.shadowColor = "rgba(0, 0, 0, 0.5)";
+                context.shadowBlur = 10; 
+                context.shadowOffsetX = 5; 
+                context.shadowOffsetY = 5;
+                context.font = "30px Arial"; 
+                context.fillStyle = "#f5362e";
+                context.textAlign = "center"; 
+                context.fillText("Happy Women's Day", canvas.width / 2, canvas.height/2.4);
+                context.fillText("Linh Đan", canvas.width / 2, canvas.height/2);
+
+                context.restore(); 
+            }
+
             // handle (re-)sizing of the canvas
             function onResize() {
                 canvas.width = canvas.clientWidth;
