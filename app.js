@@ -247,25 +247,40 @@ let isDragging = false;
 let startX = 0;
 let currentRotation = 0;
 
-document.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    startX = e.clientX;
-});
+// Hàm lấy vị trí X từ chuột hoặc cảm ứng
+function getClientX(event) {
+    return event.touches ? event.touches[0].clientX : event.clientX;
+}
 
-document.addEventListener('mousemove', (e) => {
+// Sự kiện chuột và cảm ứng bắt đầu
+function startDrag(event) {
+    isDragging = true;
+    startX = getClientX(event);
+}
+
+// Sự kiện chuột và cảm ứng di chuyển
+function onDrag(event) {
     if (!isDragging) return;
-    let moveX = e.clientX - startX;
+    let moveX = getClientX(event) - startX;
     currentRotation += moveX * 0.2; // Điều chỉnh tốc độ xoay
     inner.style.transform = `perspective(1000px) rotateX(-15deg) rotateY(${currentRotation}deg)`;
-    startX = e.clientX;
-});
+    startX = getClientX(event);
+}
 
-document.addEventListener('mouseup', () => {
+// Sự kiện chuột và cảm ứng kết thúc
+function stopDrag() {
     isDragging = false;
-});
+}
 
-document.addEventListener('mouseleave', () => {
-    isDragging = false;
-});
+// Thêm sự kiện cho cả chuột và cảm ứng
+document.addEventListener('mousedown', startDrag);
+document.addEventListener('mousemove', onDrag);
+document.addEventListener('mouseup', stopDrag);
+document.addEventListener('mouseleave', stopDrag);
+
+// Sự kiện cảm ứng
+document.addEventListener('touchstart', startDrag);
+document.addEventListener('touchmove', onDrag);
+document.addEventListener('touchend', stopDrag);
 //#endregion
 
