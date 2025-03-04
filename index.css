@@ -26,7 +26,7 @@
     transform-style: preserve-3d;
     transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(0);
     /* transform: perspective(var(--perspective)); */
-    animation: rotating 60s linear infinite; 
+    /* animation: rotating 60s linear infinite;  */
 }
 
 @keyframes rotating {
