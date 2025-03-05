@@ -288,14 +288,15 @@ document.addEventListener('touchend', stopDrag);
 //#region  card-left
 document.addEventListener("DOMContentLoaded", function () {
     var isClick=false;
-    document.addEventListener("click", function () {
-        isClick = !isClick; 
+    document.querySelector(".front").addEventListener("click", function () {
+        isClick = !isClick;
         document.querySelector(".card-text").style.top = isClick ? "-90px" : "5px";
     });
-    document.addEventListener("touchend", function (event) {
+    document.querySelector(".front").addEventListener("touchend", function (event) {
         event.preventDefault();
         isClick = !isClick;
         document.querySelector(".card-text").style.top = isClick ? "-90px" : "5px";
     });
+
 });
 //#endregion
