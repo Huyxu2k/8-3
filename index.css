@@ -26,7 +26,7 @@
     transform-style: preserve-3d;
     transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(0);
     /* transform: perspective(var(--perspective)); */
-    /* animation: rotating 60s linear infinite;  */
+    animation: rotating 60s linear infinite;
 }
 
 @keyframes rotating {
@@ -54,6 +54,7 @@
     object-fit: cover;
     background: radial-gradient(circle, rgba(var(--color-card), 0.2) 0%, rgba(var(--color-card), 0.6) 80%, rgba(var(--color-card), 0.9) 100%);
     background-size: cover;
+    background-position: center; 
 }
 
 /* card-show */
@@ -123,11 +124,12 @@
   .text {
     position: absolute;
     font-family: 'Brush Script MT', cursive;
-    font-size: 28px;
+    font-size: 17px;
     text-align: center;
     line-height:25px;
-    top:19px;
-    left:85px;
+    top: 15px;
+    left: 10px;
+    right: 10px;
     color: #003049;
   }
   
@@ -137,7 +139,7 @@
     height: 30px;
     margin: 0 10px;
     position: relative;
-    top: 110px;
+    top: 130px;
     left:105px;
     transform: rotate(-45deg);
     width: 30px;
