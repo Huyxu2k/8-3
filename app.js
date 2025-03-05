@@ -292,8 +292,8 @@ document.addEventListener("DOMContentLoaded", function () {
         isClick = !isClick; 
         document.querySelector(".card-text").style.top = isClick ? "-90px" : "5px";
     });
-    
-    document.addEventListener("touchstart", function () {
+    document.addEventListener("touchend", function (event) {
+        event.preventDefault();
         isClick = !isClick;
         document.querySelector(".card-text").style.top = isClick ? "-90px" : "5px";
     });
