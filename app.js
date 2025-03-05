@@ -221,8 +221,8 @@ var ParticlePool = (function () {
         context.font = "40px Arial"; 
         context.fillStyle = "#f5362e";
         context.textAlign = "center"; 
-        context.fillText("Happy Women's Day", canvas.width / 2, canvas.height/2.4);
-        context.fillText("Linh Đan", canvas.width / 2, canvas.height/2);
+        context.fillText("𝓗𝓪𝓹𝓹𝔂 𝔀𝓸𝓶𝓮𝓷'𝓼 𝓭𝓪𝔂", canvas.width / 2, canvas.height/2.4);
+        context.fillText("𝓛𝓲𝓷𝓱 Đ𝓪𝓷", canvas.width / 2, canvas.height/2);
 
         context.restore(); 
     }
@@ -284,3 +284,18 @@ document.addEventListener('touchmove', onDrag);
 document.addEventListener('touchend', stopDrag);
 //#endregion
 
+
+//#region  card-left
+document.addEventListener("DOMContentLoaded", function () {
+    var isClick=false;
+    document.addEventListener("click", function () {
+        isClick = !isClick; 
+        document.querySelector(".card-text").style.top = isClick ? "-90px" : "5px";
+    });
+    
+    document.addEventListener("touchstart", function () {
+        isClick = !isClick;
+        document.querySelector(".card-text").style.top = isClick ? "-90px" : "5px";
+    });
+});
+//#endregion
